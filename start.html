@@ -70,7 +70,9 @@
                             </section><!--//doc-section-->
                             <section id="visaogeral-section" class="doc-section">
                                     <h1 class="visaogeral-title">Visão Geral & Objetivo</h1>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.
+                                    <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API (NOME DA API), descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
+                                            O mecanismo de integração com (Nome da API) é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução (Nome da api) com sucesso.                                            
+                                            Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API (Nome da api). Estas operações devem ser executadas utilizando um Token e seu IPadress, nos respectivos endpoints dos ambientes:
                                         </p>
                                     <div id="visaogeral"  class="section-block">
                                         <div class="code-block">
@@ -80,7 +82,7 @@
                                 <h2 class="section-title">Instalação</h2>
                                 <div id="step1"  class="section-block">
                                     <h3 class="block-title">Step One</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.
+                                    <p>Por questão de segurança, as requisições a API precisam SEMPRE de um token válido e único em todas as requisições. Para solicitar seu primeiro token, execute a requisição "AUTH".
                                     </p>
                                     <div class="code-block">
                                         <h6>Default code example:</h6>
@@ -134,75 +136,420 @@
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
                             
-                            <section id="caracteristicas-section" class="doc-section">
-                                <h2 class="section-title">Características</h2>
-                                <div class="section-block">
-                                    <p>
-                                        <a href="https://prismjs.com/" target="_blank">PrismJS</a> is used as the syntax highlighter here. You can <a href="https://prismjs.com/download.html" target="_blank">build your own version</a> via their website should you need to.
-                                    </p>
-                                    
+                            <section id="exemplo-section" class="doc-section">
+                                <h2 class="section-title">Exemplos de requisições</h2>
+                                <div class="section-block">                      
                                 </div><!--//section-block-->
-                                <div id="html" class="section-block">
-                                    
-                                    <div class="callout-block callout-success">
-                                        <div class="icon-holder">
-                                            <i class="fas fa-thumbs-up"></i>
-                                        </div><!--//icon-holder-->
-                                        <div class="content">
-                                            <h4 class="callout-title">Useful Tip:</h4>
-                                            <p>You can use this online <a href="https://mothereff.in/html-entities" target="_blank">HTML entity encoder/decoder</a> to generate your code examples.</p>
-                                        </div><!--//content-->
-                                    </div>
+                                <div id="authprivada" class="section-block">
                                     <div class="code-block">
-                                        <h6>HTML Code Example</h6>
-                                        <pre><code class="language-markup">&lt;!DOCTYPE html&gt; 
-&lt;html lang=&quot;en&quot;&gt; 
-    ...
-    &lt;div class=&quot;jumbotron&quot;&gt; 
-        &lt;h1&gt;Hello, world!&lt;/h1&gt; 
-        &lt;p&gt;...&lt;/p&gt; 
-        &lt;p&gt;&lt;a class=&quot;btn btn-primary btn-lg&quot; href=&quot;#&quot; role=&quot;button&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt; 
-    &lt;/div&gt;
-    &lt;div class=&quot;jumbotron&quot;&gt; 
-        &lt;h1&gt;Hello, world!&lt;/h1&gt; 
-        &lt;p&gt;...&lt;/p&gt; 
-        &lt;p&gt;&lt;a class=&quot;btn btn-primary btn-lg&quot; href=&quot;#&quot; role=&quot;button&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt; 
-    &lt;/div&gt;
-    ...
-&lt;/html&gt;</code></pre>
-                                    </div><!--//code-block-->
-                                </div><!--//section-block-->
-                                <div id="css" class="section-block">
-                                    <div class="code-block">
-                                        <h6>CSS Code Example</h6>
-                                        <pre><code class="language-css">/* ======= Base Styling ======= */
-body {
-    font-family: 'Open Sans', arial, sans-serif; 
-    color: #333; 
-    font-size: 16px; 
-    -webkit-font-smoothing: antialiased; 
-    -moz-osx-font-smoothing: grayscale; 
-}</code></pre>
-                                    </div><!--//code-block-->
-                                </div><!--//section-block-->
-                                <div id="java" class="section-block">
-                                    <div class="code-block">
-                                        <h6>Java Code Example</h6>
-                                        <pre><code class="language-css">@mixin transform($property) {
-  -webkit-transform: $property;
-      -ms-transform: $property;
-          transform: $property;
+                                        <h6>Requisição AUTH - Privada</h6>
+                                        <p>A requisição do tipo POST para o serviço de autenticação (Auth), serve para criar uma autenticação via TOKEN para outras requisições.                                                                                     
+                                        Após enviar a requisição de autenticação utilizando os parâmetros "AppToken", "appPassword", "ipAddress","login"
+                                        e "userPassword", outras requisições da aplicação serão permitidas para o TOKEN em questão, que será gerado e retornado após 
+                                        a requisição ser executada. 
+                                        </p>
+                                        <p>ATENÇÃO!!! Esse TOKEN será válido por até 15 minutos e somente poderá se utilizado uma ÚNICA vez, pois a cada requisição será gerado
+                                            um novo TOKEN.
+                                        </p>
+                                            <h6>Requisição POST de exemplo</h6>
+                                        <pre><code class="language-javascript">{
+	"appToken": "CDD3D0B1C293E96933F2311DF45E52446826C1FF3C7EEBD71076761BA5E9FF25",
+	"appPassword": "0253BBFC56DC68DB82AEE56127676B60B3F7F5DE2AF72D0FC974673A16313158",
+	"login": "heitorlucasferreira-99@delboux.com.br",
+	"userPassword": "123",
+	"ipAddress": "localhost"
 }
-
-.box { @include transform(rotate(30deg)); }</code></pre>
+</code></pre>
+<div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>PARÂMETRO</th>
+                    <th>TIPO</th>
+                    <th>TAMANHO</th>
+                    <th>OBRIGATÓRIO</th>
+                    <th>DESCRIÇÃO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>appToken</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>64</td>
+                    <td>SIM</td>
+                    <td>Identificação da aplicação</td>
+                </tr>
+                <tr>
+                    <th>appPassword</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>64</td>
+                    <td>SIM</td>
+                    <td>Senha da aplicação</td>
+                </tr>
+                <tr>
+                    <th>login</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>30</td>
+                    <td>SIM</td>
+                    <td>Nome do Usuário cadastrado na aplicação</td>
+                </tr>
+                <tr>
+                    <th>TOKEN</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>30</td>
+                    <td>SIM</td>
+                    <td>Senha do Usuário cadastrado na aplicação</td>
+                </tr>
+                <tr>
+                    <th>ipAddress</th>
+                    <td>ALFANUMÉRICO/td>
+                    <td>100</td>
+                    <td>SIM</td>
+                    <td>IP do user que está acessando a aplicação</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<div id="authprivadaretorno" class="section-block">
+        <div class="code-block">
+            <h6>Retorno da Requisição AUTH - Privada</h6>            
+            <pre><code class="language-javascript">{
+    "token": "FA9622016767FE46EA6601042586C5CD6D4AFB84723105E353DDDE07A55A8461",
+    "user": {
+        "firstname": null,
+        "lastname": null,
+        "name": "Vinicius Yago Bruno Pereira",
+        "email": "heitorlucasferreira-99@delboux.com.br",
+        "login": "heitorlucasferreira-99@delboux.com.br",
+        "company": 1,
+        "isactive": true,
+        "phone": "",
+        "role": "CUSTOMER"
+    },
+    "hasError": false,
+    "error": null
+}
+</code></pre>
+<div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>PARÂMETRO</th>
+                    <th>TIPO</th>
+                    <th>TAMANHO</th>
+                    <th>OBRIGATÓRIO</th>
+                    <th>DESCRIÇÃO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>token</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>64</td>
+                    <td>SIM</td>
+                    <td>Valor variável e retornado a cada requisição</td>
+                </tr>
+                <tr>
+                    <th>firstname</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>255</td>
+                    <td>NÃO</td>
+                    <td>Será retornado se existir no cadastro</td>
+                </tr>
+                <tr>
+                    <th>lastname</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>255</td>
+                    <td>NÃO</td>
+                    <td>Será retornado se existir no cadastro</td>
+                </tr>
+                
+                <tr>
+                    <th>name</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>255</td>
+                    <td>NÃO</td>
+                    <td>Será retornado se existir no cadastro</td>
+                </tr>
+                <tr>
+                    <th>email</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>255</td>
+                    <td>SIM</td>
+                    <td>E-mail do cadastro</td>
+                </tr>
+                <tr>
+                    <th>login</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>100</td>
+                    <td>SIM</td>
+                    <td>Se não for informado no cadastro, retornará o E-mail</td>
+                </tr>
+                <tr>
+                    <th>company</th>
+                    <td>NUMÉRICO</td>
+                    <td>50</td>
+                    <td>SIM</td>
+                    <td>Código de identificação da empresa</td>
+                </tr>
+                <tr>
+                    <th>isactive</th>
+                    <td>TEXTO</td>
+                    <td>5</td>
+                    <td>SIM</td>
+                    <td>Informativo sobre o Status da conta.</td>
+                </tr>
+                <tr>
+                    <th>phone</th>
+                    <td>NUMÉRICO</td>
+                    <td>50</td>
+                    <td>NÃO</td>
+                    <td>Será retornado se existir no cadastro</td>
+                </tr>
+                <tr>
+                    <th>role</th>
+                    <td>TEXTO</td>
+                    <td>80</td>
+                    <td>SIM</td>
+                    <td>Retornará o tipo do perfil do cadastro</td>
+                </tr>
+                <tr>
+                    <th>haserror</th>
+                    <td>TEXTO</td>
+                    <td>5</td>
+                    <td>SIM</td>
+                    <td>Retornará "TRUE" se tiver erros na requisição</td>
+                </tr>
+                <tr>
+                    <th>error</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>255</td>
+                    <td>SIM</td>
+                    <td>Se houver erros, retornarão nessa chamada</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ <P>O TOKEN gerado será válido por até 15 minutos, ou até a sua utilização.
+        Após utilizá-lo, a API retornará os dados da sua requisição + um novo token para usar na próxima requisição.
+    </P>
+    <div id="authpublica" class="section-block">
+        <div class="code-block">
+            <h6>Requisição AUTH - Pública</h6>
+            <p>A requisição do tipo POST para o serviço de autenticação Pública(Auth), serve para criar uma autenticação via TOKEN para as requisições do tipo PÚBLICA.                                                                                     
+                Após enviar a requisição de autenticação utilizando os parâmetros "AppToken" e "appPassword", outras requisições do tipo PÚBLICA da aplicação serão permitidas para o TOKEN em questão, que será gerado e retornado após 
+                a requisição ser executada.  
+            </p>
+            <p>ATENÇÃO!!! Esse TOKEN será válido por até 15 minutos e somente poderá se utilizado uma ÚNICA vez, pois a cada requisição será gerado
+                um novo TOKEN.
+            </p>
+                <h6>Requisição POST de exemplo</h6>
+            <pre><code class="language-javascript">{
+"appToken": "CDD3D0B1C293E96933F2311DF45E52446826C1FF3C7EEBD71076761BA5E9FF25",
+"appPassword": "0253BBFC56DC68DB82AEE56127676B60B3F7F5DE2AF72D0FC974673A16313158"
+}
+</code></pre>
+<div class="table-responsive">
+<table class="table table-striped">
+<thead>
+                <tr>
+                    <th>PARÂMETRO</th>
+                    <th>TIPO</th>
+                    <th>TAMANHO</th>
+                    <th>OBRIGATÓRIO</th>
+                    <th>DESCRIÇÃO</th>
+                </tr>
+                    </thead>
+                    <tbody>
+                <tr>
+                    <th>appToken</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>64</td>
+                    <td>SIM</td>
+                    <td>Identificação da aplicação</td>
+                </tr>
+                <tr>
+                    <th>appPassword</th>
+                    <td>ALFANUMÉRICO</td>
+                    <td>64</td>
+                    <td>SIM</td>
+                    <td>Senha da aplicação</td>
+                </tr>
+</tbody>
+</table>
+</div>
+<div id="authpublicaretorno" class="section-block">
+    <div class="code-block">
+        <h6>Retorno da Requisição AUTH - Pública</h6>            
+        <pre><code class="language-javascript">{  
+            "token":"8DBAEE9FC7C03B1631CB869A0ADE5D68DB18EA98E0285CCE869904CC2D4B8D20",
+            "user":null,
+            "hasError":true,
+            "error":{  
+               "error":null,
+               "appToken":null,
+               "appPassword":null,
+               "userName":null,
+               "userPassword":null,
+               "ipAddress":null
+            }
+         }
+</code></pre>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>PARÂMETRO</th>
+                <th>TIPO</th>
+                <th>TAMANHO</th>
+                <th>OBRIGATÓRIO</th>
+                <th>DESCRIÇÃO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>token</th>
+                <td>ALFANUMÉRICO</td>
+                <td>64</td>
+                <td>SIM</td>
+                <td>Valor variável e retornado a cada requisição</td>
+            </tr>
+            <tr>
+                <th>user</th>
+                <td>ALFANUMÉRICO</td>
+                <td>255</td>
+                <td>NÃO</td>
+                <td>Retornará null se não for informado na requisição</td>
+            </tr>
+            <tr>
+                <th>hasError</th>
+                <td>TEXTO</td>
+                <td>5</td>
+                <td>SIM</td>
+                <td>Será retornado TRUE</td>
+            </tr>        
+            <tr>
+                <th>error</th>
+                <td>ALFANUMÉRICO</td>
+                <td>255</td>
+                <td>SIM</td>
+                <td>Será retornado null</td>
+            </tr>
+            <tr>
+                <th>apptoken</th>
+                <td>ALFANUMÉRICO</td>
+                <td>255</td>
+                <td>SIM</td>
+                <td>Será retornado null</td>
+            </tr>
+            <tr>
+                <th>appPassword</th>
+                <td>ALFANUMÉRICO</td>
+                <td>255</td>
+                <td>SIM</td>
+                <td>Será retornado null</td>
+            </tr>
+            <tr>
+                <th>userName</th>
+                <td>ALFANUMÉRICO</td>
+                <td>255</td>
+                <td>SIM</td>
+                <td>Será retornado null</td>
+            </tr>
+            <tr>
+                <th>UserPassword</th>
+                <td>ALFANUMÉRICO</td>
+                <td>255</td>
+                <td>SIM</td>
+                <td>Será retornado null</td>
+            </tr>
+            <tr>
+                <th>ipAddress</th>
+                <td>ALFANUMÉRICO</td>
+                <td>255</td>
+                <td>SIM</td>
+                <td>Será retornado null</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+<div id="accountpayout" class="section-block">
+        <div class="code-block">
+            <h6>Requisição AccountPayout</h6>
+            <p>A requisição do tipo POST para o serviço de AccountPayout, serve para...                                                                                     
+                </p>
+                <h6>Requisição POST de exemplo</h6>
+            <pre><code class="language-javascript">{
+    "token": "65421790A16A5384652BDA5FEAAD7AA46C261130C80DEB836EAC45D65AF46D70",
+    "ipAddress": "localhost",
+    "code": 1,
+    "payoutCode": 1
+}
+</code></pre>
+<div id="accountpayoutretorno" class="section-block">
+<div class="code-block">
+<h6>Retorno da Requisição AccountPayout</h6>            
+<pre><code class="language-javascript">{
+    "token": "317396E9D93F8096D0DA4DF090397AFEAF32DBD31606918A79A744DB948A0E3D",
+    "hasError": false,
+    "error": null
+}
+</code></pre>
+<P>Retorno da requisição... (Continuar)</P>
+<div id="blockaccountpayoutevent" class="section-block">
+        <div class="code-block">
+            <h6>Requisição de BlockAccountPayoutEvent</h6>
+            <p>A requisição do tipo POST para o serviço de BlockAccountPayoutEvent, serve para...                                                                                     
+                </p>
+                <h6>Requisição POST de exemplo</h6>
+            <pre><code class="language-javascript">{
+    "token": "C9D79644AF3E27101B651AF37E2681ECD7841002F30BA6518A79C9328DFF4865",
+    "ipAddress": "localhost",
+    "accountPayoutCode": 1,
+    "description": "Cartão roubado!"
+}
+</code></pre>
+<div id="blockaccountpayouteventretorno" class="section-block">
+<div class="code-block">
+<h6>Retorno da Requisição BlockAccountPayoutEvent</h6>            
+<pre><code class="language-javascript">{
+    "token": "7B50F1EE0A5B0D7F9979824E9E1F3B3AC87250A6F056BDE134EE348BBCFE05A5",
+    "hasError": false,
+    "error": null
+}
+</code></pre>
+<P>Retorno da requisição... (Continuar)</P>
+<div id="recoverypassword" class="section-block">
+        <div class="code-block">
+            <h6>Requisição de RecoveryPassword</h6>
+            <p>A requisição do tipo POST para o serviço de RecoveryPassword, serve para solicitar a redefinição de senha,
+                onde será enviado via e-mail um link para sua redefinição.                                                                                     
+                </p>
+                <h6>Requisição POST de exemplo</h6>
+            <pre><code class="language-javascript">{
+    "token": "92B42BB91BFE040D00A32FB12E1C58D1C9975934FE149855DFB8345A79237065",
+    "ipAddress": "localhost",
+    "email": "gabriel@adaptaconsultoria.com.br"
+}
+</code></pre>
+<div id="recoverypasswordretorno" class="section-block">
+<div class="code-block">
+<h6>Retorno da Requisição RecoveryPassword</h6>            
+<pre><code class="language-javascript">{
+    "token": "231827E8BC453F8CE8EA08C28C28C1D6CCB9465920B126900B5DD16788C6A29C",
+    "hasError": false,
+    "error": null
+}
+</code></pre>
+<P>Retorno da requisição... (Continuar)</P>
                                     </div><!--//code-block-->
                                 </div><!--//section-block-->
+                                
                                 <div id="rest" class="section-block">
                                     <div class="code-block">
                                         <h6>REST Code Example</h6>
                                         <pre><code class="language-css">@base: #f04615;
 @width: 0.5;
-
 .class {
   width: percentage(@width); // returns &#x60;50%&#x60;
   color: saturate(@base, 5%);
@@ -313,18 +660,14 @@ echo $y;
                                        <div class="code-block">
                                         </div><!--//code-block-->
                                     </div><!--//section-block-->        
-                                <section id="exemplo-section" class="doc-section">
-                                <h2 class="exemplos-title">Exemplos de requisições</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.
-                                        </p>
-                                    <div id="exemplo"  class="section-block">
+                                <section id="caracteristica-section" class="doc-section">
+                                <h2 class="caracteristica-title">Características & Tecnologias envolvidas</h2>
+                                    <div id="caracteristica"  class="section-block">
                                         <div class="code-block">
                                          </div><!--//code-block-->
                                      </div><!--//section-block-->
                                      <section id="conhecaservico-section" class="doc-section">
-                                            <h2 class="conhecaservico-title">Conheça melhor o nosso serviço</h2>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis.
-                                                    </p>
+                                            <h2 class="conhecaservico-title">Conheça melhor o nosso serviço</h2>                                                
                                                 <div id="conhecaservico"  class="section-block">
                                                     <div class="code-block">
                                                      </div><!--//code-block-->
@@ -448,25 +791,21 @@ echo $y;
                         <div id="doc-nav" class="doc-nav">
                             
                                 <nav id="doc-menu" class="nav doc-menu flex-column sticky">
-                                    <a class="nav-link scrollto" href="#visaogeral-section">Visão Geral & Objetivo</a>  
+                                    <a class="nav-link scrollto" href="#visaogeral-section">Visão Geral & Objetivo</a>                  
                                         <nav class="doc-sub-menu nav flex-column">              
                                     </nav><!--//nav-->   
                                     <nav id="doc-menu" class="nav doc-menu flex-column sticky">
                                             <a class="nav-link scrollto" href="#instalacao-section">Manual de instalação</a>
-                                                <nav class="doc-sub-menu nav flex-column">
-                                                    <a class="nav-link scrollto" href="#step1">Step One</a>
-                                                    <a class="nav-link scrollto" href="#step2">Step Two</a>
-                                                    <a class="nav-link scrollto" href="#step3">Step Three</a>   
+                                                <nav class="doc-sub-menu nav flex-column"> 
                                     </nav><!--//nav-->
                                     <nav id="doc-menu" class="nav doc-menu flex-column sticky">
-                                            <a class="nav-link scrollto" href="#caracteristicas-section">Carácterísticas & Tecnologias envolvidas</a>
+                                            <a class="nav-link scrollto" href="#exemplo-section">Exemplos de requisições</a>
                                                 <nav class="doc-sub-menu nav flex-column">
-                                                    <a class="nav-link scrollto" href="#java">Java</a>
-                                                    <a class="nav-link scrollto" href="#rest">REST</a>
-                                                    <a class="nav-link scrollto" href="#javascript">JavaScript</a>
-                                                    <a class="nav-link scrollto" href="#python">Python</a>
-                                                    <a class="nav-link scrollto" href="#php">PHP</a>
-                                                    <a class="nav-link scrollto" href="#rubyonrails">Ruby on Rails</a>
+                                                    <a class="nav-link scrollto" href="#authprivada">AuthPrivada</a>
+                                                    <a class="nav-link scrollto" href="#authpublica">AuthPublica</a>
+                                                    <a class="nav-link scrollto" href="#accountpayout">AccountPayout</a>
+                                                    <a class="nav-link scrollto" href="#blockaccountpayoutevent">BlockAccountPayoutEvent</a>
+                                                    <a class="nav-link scrollto" href="#recoverypassword">RecoveryPassword</a>
                                     </nav><!--//nav-->                
                                 <nav id="doc-menu" class="nav doc-menu flex-column sticky">
                                      <a class="nav-link scrollto" href="#regras-section">Regras Adicionais/Opcionais</a>                     
@@ -494,7 +833,7 @@ echo $y;
                                                 </nav><!--//nav-->                
                                                     </nav>
                                 <nav id="doc-menu" class="nav doc-menu flex-column sticky">
-                                    <a class="nav-link scrollto" href="#exemplo-section">Exemplos de requisições</a>
+                                    <a class="nav-link scrollto" href="#caracteristica-section">Carácterísticas & Tecnologias envolvidas</a>
                                         <nav class="doc-sub-menu nav flex-column">
                                                 </nav><!--//nav-->                
                                                     </nav>
