@@ -87,8 +87,8 @@
                                 <h2 class="section-title">Exemplos de requisições</h2>
                                 <div id="authprivada" class="section-block">
                                         <h6>Requisição AUTH - Privada</h6>
-                                        <p>A requisição do tipo POST para o serviço de autenticação (Auth), serve para criar uma autenticação via TOKEN para outras requisições.                                                                                     
-                                        Após enviar a requisição de autenticação utilizando os parâmetros "AppToken", "appPassword", "ipAddress","login"
+                                        <p>A requisição do tipo POST para o serviço de autenticação Privada (Auth) serve para criar uma autenticação via TOKEN para outras requisições do tipo PRIVADA.                                                                                     
+                                        Após enviar essa requisição utilizando os parâmetros "AppToken", "appPassword", "ipAddress","login"
                                         e "userPassword", outras requisições da aplicação serão permitidas para o TOKEN em questão, que será gerado e retornado após 
                                         a requisição ser executada. 
                                         </p>
@@ -138,7 +138,7 @@
                     <td>Nome do Usuário cadastrado na aplicação</td>
                 </tr>
                 <tr>
-                    <th>TOKEN</th>
+                    <th>userPassword</th>
                     <td>ALFANUMÉRICO</td>
                     <td>30</td>
                     <td>SIM</td>
@@ -146,7 +146,7 @@
                 </tr>
                 <tr>
                     <th>ipAddress</th>
-                    <td>ALFANUMÉRICO/td>
+                    <td>ALFANUMÉRICO</td>
                     <td>100</td>
                     <td>SIM</td>
                     <td>IP do user que está acessando a aplicação</td>
@@ -187,7 +187,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <th>token</th>
+                    <th>appToken</th>
                     <td>ALFANUMÉRICO</td>
                     <td>64</td>
                     <td>SIM</td>
@@ -280,9 +280,9 @@
     <div id="authpublica" class="section-block">
         <div class="code-block">
             <h6>Requisição AUTH - Pública</h6>
-            <p>A requisição do tipo POST para o serviço de autenticação Pública(Auth), serve para criar uma autenticação via TOKEN para as requisições do tipo PÚBLICA.                                                                                     
-                Após enviar a requisição de autenticação utilizando os parâmetros "AppToken" e "appPassword", outras requisições do tipo PÚBLICA da aplicação serão permitidas para o TOKEN em questão, que será gerado e retornado após 
-                a requisição ser executada.  
+            <p>A requisição do tipo POST para o serviço de autenticação Pública(Auth) serve para criar uma autenticação via TOKEN para as requisições do tipo PÚBLICA.                                                                                     
+                Após enviar essa requisição utilizando os parâmetros "AppToken" e "appPassword", outras requisições do tipo PÚBLICA da aplicação serão permitidas para o TOKEN
+                em questão, que será gerado e retornado após a requisição ser executada.  
             </p>
             <p>ATENÇÃO!!! Esse TOKEN será válido por até 15 minutos e somente poderá se utilizado uma ÚNICA vez, pois a cada requisição será gerado
                 um novo TOKEN.
@@ -374,8 +374,8 @@
             </tr>        
             <tr>
                 <th>error</th>
-                <td>ALFANUMÉRICO</td>
-                <td>255</td>
+                <td>TEXTO</td>
+                <td>4</td>
                 <td>SIM</td>
                 <td>Será retornado null</td>
             </tr>
@@ -430,6 +430,49 @@
     "payoutCode": 1
 }
 </code></pre>
+<div class="table-responsive">
+        <table class="table table-striped">
+        <thead>
+                        <tr>
+                            <th>PARÂMETRO</th>
+                            <th>TIPO</th>
+                            <th>TAMANHO</th>
+                            <th>OBRIGATÓRIO</th>
+                            <th>DESCRIÇÃO</th>
+                        </tr>
+                            </thead>
+                            <tbody>
+                        <tr>
+                            <th>token</th>
+                            <td>ALFANUMÉRICO</td>
+                            <td>64</td>
+                            <td>SIM</td>
+                            <td>Valor variável e retornado a cada requisição</td>
+                        </tr>
+                        <tr>
+                            <th>ipAddress</th>
+                            <td>ALFANUMÉRICO</td>
+                            <td>255</td>
+                            <td>SIM</td>
+                            <td>IP do user que está acessando a aplicação</td>
+                        </tr>
+                        <tr>
+                                <th>code</th>
+                                <td>NUMÉRICO</td>
+                                <td>25</td>
+                                <td>SIM</td>
+                                <td>Código</td>
+                            </tr>
+                            <tr>
+                                    <th>payoutCode</th>
+                                    <td>NUMÉRICO</td>
+                                    <td>25</td>
+                                    <td>SIM</td>
+                                    <td>Código do pagamento</td>
+                                </tr>
+        </tbody>
+        </table>
+        </div>
 <div id="accountpayoutretorno" class="section-block">
 <div class="code-block">
 <h6>Retorno da Requisição AccountPayout</h6>            
@@ -439,7 +482,42 @@
     "error": null
 }
 </code></pre>
-<P>Retorno da requisição... (Continuar)</P>
+<div class="table-responsive">
+        <table class="table table-striped">
+        <thead>
+                        <tr>
+                            <th>PARÂMETRO</th>
+                            <th>TIPO</th>
+                            <th>TAMANHO</th>
+                            <th>OBRIGATÓRIO</th>
+                            <th>DESCRIÇÃO</th>
+                        </tr>
+                            </thead>
+                            <tbody>
+                        <tr>
+                            <th>token</th>
+                            <td>ALFANUMÉRICO</td>
+                            <td>64</td>
+                            <td>SIM</td>
+                            <td>Valor variável e retornado a cada requisição</td>
+                        </tr>
+                        <tr>
+                            <th>hasError</th>
+                            <td>TEXTO</td>
+                            <td>5</td>
+                            <td>SIM</td>
+                            <td>Retornará "FALSE" se não houver erros na requisição</td>
+                        </tr>
+                        <tr>
+                                <th>error</th>
+                                <td>TEXTO</td>
+                                <td>4</td>
+                                <td>SIM</td>
+                                <td>Retornará null se não houver erros na requisição</td>
+                            </tr>
+</tbody>
+</table>
+</div>
 <div id="blockaccountpayoutevent" class="section-block">
         <div class="code-block">
             <h6>Requisição de BlockAccountPayoutEvent</h6>
@@ -462,7 +540,6 @@
     "error": null
 }
 </code></pre>
-<P>Retorno da requisição... (Continuar)</P>
 <div id="recoverypassword" class="section-block">
         <div class="code-block">
             <h6>Requisição de RecoveryPassword</h6>
@@ -484,85 +561,7 @@
     "hasError": false,
     "error": null
 }
-</code></pre>
-<P>Retorno da requisição... (Continuar)</P>
-                                    </div><!--//code-block-->
-                                </div><!--//section-block-->
-                                
-                                <div id="rest" class="section-block">
-                                    <div class="code-block">
-                                        <h6>REST Code Example</h6>
-                                        <pre><code class="language-css">@base: #f04615;
-@width: 0.5;
-.class {
-  width: percentage(@width); // returns &#x60;50%&#x60;
-  color: saturate(@base, 5%);
-  background-color: spin(lighten(@base, 25%), 8);
-}</code></pre>
-                                    </div><!--//code-block-->
-                                </div><!--//section-block-->
-                                <div id="javascript" class="section-block">
-                                    <div class="code-block">
-                                        <h6>JavaScript Code Example</h6>
-                                        <pre><code class="language-javascript">&lt;script&gt; 
-    function myFunction(a, b) { 
-        return a * b; 
-    } 
-    
-    document.getElementById(&quot;demo&quot;).innerHTML = myFunction(4, 3); 
-&lt;/script&gt;</code></pre>
-                                    </div><!--//code-block-->
-                                </div><!--//section-block-->
-                                <div id="python" class="section-block">
-                                    <div class="code-block">
-                                        <h6>Python Code Example</h6>
-                                        <pre><code class="language-python">&gt;&gt;&gt; x = int(input(&quot;
-Please enter an integer: &quot;)) Please enter an integer: 42 
-&gt;&gt;&gt; if x &lt; 0: 
-... x = 0 
-... print('Negative changed to zero') 
-... elif x == 0: 
-... print('Zero') 
-... elif x == 1: 
-... print('Single') 
-... else: 
-... print('More') 
-... More</code></pre>
-                                    </div><!--//code-block-->
-                                </div><!--//section-block-->
-                                <div id="php" class="section-block">
-                                    <div class="code-block">
-                                        <h6>PHP Code Example</h6>
-                                        <pre><code class="language-php">&lt;?php 
-$txt = &quot;Hello world!&quot;; 
-$x = 5; 
-$y = 10.5; 
-
-echo $txt; 
-echo &quot;&lt;br&gt;&quot;; 
-echo $x; 
-echo &quot;&lt;br&gt;&quot;; 
-echo $y; 
-?&gt;</code></pre>
-                                    </div><!--//code-block-->
-                                </div><!--//section-block-->
-                                <div id="rubyonrails" class="section-block">
-                                    <div class="code-block">
-                                        <h6>Ruby on Rails Code Example</h6>
-                                        <pre><code class="language-rubyonrails">Handlebars.registerHelper('list', function(items, options) { 
-  var out = &quot;&lt;ul&gt;&quot;; 
-  
-  for(var i=0, l=items.length; i&lt;l; i++) { 
-    out = out + &quot;&lt;li&gt;&quot; + options.fn(items[i]) + &quot;&lt;/li&gt;&quot;; 
-  } 
-  
-  return out + &quot;&lt;/ul&gt;&quot;; 
-});</code></pre>
-                                    </div><!--//code-block-->
-                                    <div class="code-block">
-                                        <h6>Git Code Example</h6>
-                                        <pre><code class="language-git">$ git add Documentation.txt</code></pre>
-                                    </div><!--//code-block-->
+</code></pre>                               
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
                             <section id="regras-section" class="doc-section">
