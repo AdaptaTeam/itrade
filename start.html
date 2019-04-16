@@ -40,7 +40,7 @@
                 
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Quick Start</li>
+                    <li class="breadcrumb-item active">Manual de integração a API</li>
                 </ol>
                 
                 <div class="top-search-box">
@@ -58,8 +58,8 @@
         <div class="doc-wrapper">
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
-                    <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> Quick Start</h1>
-                    <div class="meta"><i class="far fa-clock"></i> Last updated: July 18th, 2018</div>
+                    <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> Manual de integração a API</h1>
+                    <div class="meta"><i class="far fa-clock"></i> Última atualização: 16/04/2019</div>
                 </div><!--//doc-header-->
                 <div class="doc-body row">
                     <div class="doc-content col-md-9 col-12 order-1">
@@ -67,32 +67,25 @@
                             <section id="download-section" class="doc-section">
                                 <div class="section-block">
                                 </div>
-                            </section><!--//doc-section-->
-                            <section id="visaogeral-section" class="doc-section">
-                                    <h1 class="visaogeral-title">Visão Geral & Objetivo</h1>
+                                <section id="visaogeral-section" class="doc-section">
+                                        <h1 class="section-title">Visão Geral & Objetivo</h1>
+                                        <div id="step1"  class="section-block">
                                     <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API (NOME DA API), descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
-                                            O mecanismo de integração com (Nome da API) é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução (Nome da api) com sucesso.                                            
-                                            Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API (Nome da api). Estas operações devem ser executadas utilizando um Token e seu IPadress, nos respectivos endpoints dos ambientes:
-                                        </p>
-                                    <div id="visaogeral"  class="section-block">
-                                        <div class="code-block">
-                                        </div><!--//code-block-->
-                                    </div><!--//section-block-->
+                                    O mecanismo de integração com (Nome da API) é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução (Nome da api) com sucesso.                                            
+                                    Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API (Nome da api). Estas operações devem ser executadas utilizando um Token e seu IPadress, nos respectivos endpoints dos ambientes:
+                                            </p>                                
+                                        </div><!--//section-block-->
+                                    </section><!--//doc-section-->                                           
                             <section id="instalacao-section" class="doc-section">
                                 <h2 class="section-title">Instalação</h2>
                                 <div id="step1"  class="section-block">
-                                    <h3 class="block-title">Entendimento inicial</h3>
                                     <p>Por questão de segurança, as requisições a API precisam SEMPRE de um token válido e único em todas as requisições. Para solicitar seu primeiro token, execute a requisição "AUTH".
                                     </p>                                
                                 </div><!--//section-block-->
-                            </section><!--//doc-section-->
-                            
+                            </section><!--//doc-section-->                            
                             <section id="exemplo-section" class="doc-section">
                                 <h2 class="section-title">Exemplos de requisições</h2>
-                                <div class="section-block">                      
-                                </div><!--//section-block-->
                                 <div id="authprivada" class="section-block">
-                                    <div class="code-block">
                                         <h6>Requisição AUTH - Privada</h6>
                                         <p>A requisição do tipo POST para o serviço de autenticação (Auth), serve para criar uma autenticação via TOKEN para outras requisições.                                                                                     
                                         Após enviar a requisição de autenticação utilizando os parâmetros "AppToken", "appPassword", "ipAddress","login"
