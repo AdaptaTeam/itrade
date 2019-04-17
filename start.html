@@ -72,7 +72,7 @@
                                         <div id="step1"  class="section-block">
                                     <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API (NOME DA API), descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
                                     O mecanismo de integração com (Nome da API) é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução (Nome da api) com sucesso.                                            
-                                    Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API (Nome da api). Estas operações devem ser executadas utilizando um Token e seu IPadress, nos respectivos endpoints dos ambientes:
+                                    Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API (Nome da API). Estas operações devem ser executadas utilizando um Token e seu IPadress, nos respectivos endpoints dos ambientes:
                                             </p>                                
                                         </div><!--//section-block-->
                                     </section><!--//doc-section-->                                           
@@ -126,7 +126,7 @@
                 <tr>
                     <th>appPassword</th>
                     <td>ALFANUMÉRICO</td>
-                    <td>64</td>
+                    <td>255</td>
                     <td>SIM</td>
                     <td>Senha da aplicação</td>
                 </tr>
@@ -140,7 +140,7 @@
                 <tr>
                     <th>userPassword</th>
                     <td>ALFANUMÉRICO</td>
-                    <td>30</td>
+                    <td>255</td>
                     <td>SIM</td>
                     <td>Senha do Usuário cadastrado na aplicação</td>
                 </tr>
@@ -262,7 +262,7 @@
                     <td>TEXTO</td>
                     <td>5</td>
                     <td>SIM</td>
-                    <td>Retornará "TRUE" se tiver erros na requisição</td>
+                    <td>Retornará "TRUE" se houver erros na requisição</td>
                 </tr>
                 <tr>
                     <th>error</th>
@@ -281,7 +281,7 @@
         <div class="code-block">
             <h6>Requisição AUTH - Pública</h6>
             <p>A requisição do tipo POST para o serviço de autenticação Pública(Auth) serve para criar uma autenticação via TOKEN para as requisições do tipo PÚBLICA.                                                                                     
-                Após enviar essa requisição utilizando os parâmetros "AppToken" e "appPassword", outras requisições do tipo PÚBLICA da aplicação serão permitidas para o TOKEN
+                Após enviar essa requisição utilizando os parâmetros "AppToken" e "appPassword", outras ações na API serão permitidas para o TOKEN
                 em questão, que será gerado e retornado após a requisição ser executada.  
             </p>
             <p>ATENÇÃO!!! Esse TOKEN será válido por até 15 minutos e somente poderá se utilizado uma ÚNICA vez, pois a cada requisição será gerado
@@ -417,10 +417,256 @@
         </tbody>
     </table>
     </div>
-<div id="accountpayout" class="section-block">
+    <div id="account" class="section-block">
+            <div class="code-block">
+                <h6>Requisição Account</h6>
+                <p>A requisição do tipo POST para o serviço de Account, serve para cadastrar uma nova conta na aplicação. Nesas requisição, existem diversos
+                    parâmetros opcionais e não obrigatório.                                                                    
+                    </p>
+                    <h6>Requisição POST de exemplo</h6>
+                            <pre><code class="language-javascript">{
+    "token": "611AAE9D6FE958FBED46A46BCEA8AA8CE7593B40E3E8853EC524D45C6C98706B",
+    "ipAddress": "localhost",
+    "doLogin": "false",
+    "countryIsoCode": "BR",
+    "fisrtname": "Cleiton",
+    "lastname": "Kreimer",
+    "name": "Cleiton",
+    "login": "loginteste15",
+    "password": "teste123",
+    "email": "teste@gmailteste.com",
+    "phone": "(49) 9 9999-9999",
+    "taxid": "123.456.789-01",
+    "address": "Av general osório",
+    "addressCountryIsoCode": "BR",
+    "addressRegionCode": "SC",
+    "addressCityCode": "CCO",
+    "addressDistrict": "Centro",
+    "addressZipcode": "8980121",
+    "accountNo": "",
+    "sponsorAccountNo": "0550000000055"
+}                </code></pre>
+                <div class="table-responsive">
+                        <table class="table table-striped">
+                        <thead>
+                                        <tr>
+                                            <th>PARÂMETRO</th>
+                                            <th>TIPO</th>
+                                            <th>TAMANHO</th>
+                                            <th>OBRIGATÓRIO</th>
+                                            <th>DESCRIÇÃO</th>
+                                        </tr>
+                                            </thead>
+                                            <tbody>
+                                        <tr>
+                                            <th>token</th>
+                                            <td>ALFANUMÉRICO</td>
+                                            <td>64</td>
+                                            <td>SIM</td>
+                                            <td>Valor variável e retornado a cada requisição</td>
+                                        </tr>
+                                        <tr>
+                                            <th>ipAddress</th>
+                                            <td>ALFANUMÉRICO</td>
+                                            <td>255</td>
+                                            <td>SIM</td>
+                                            <td>IP do user que está acessando a aplicação</td>
+                                        </tr>
+                                        <tr>
+                                            <th>doLogin</th>
+                                            <td>TEXTO</td>
+                                            <td>5</td>
+                                            <td>SIM</td>
+                                            <td>Preencher com TRUE OR FALSE para efetuar login após o cadastro</td>
+                                        </tr>
+                                        <tr>
+                                            <th>countryIsoCode</th>
+                                            <td>TEXTO</td>
+                                            <td>2</td>
+                                            <td>SIM</td>
+                                            <td>Código do país. Usar BR ou PY</td>
+                                        </tr>                                        
+                                        <tr>
+                                            <th>firstname</th>
+                                            <td>TEXTO</td>
+                                            <td>255</td>
+                                            <td>NÃO</td>
+                                            <td>Primeiro nome</td>
+                                        </tr>
+                                        <tr>
+                                            <th>lastname</th>
+                                            <td>TEXTO</td>
+                                            <td>255</td>
+                                            <td>NÃO</td>
+                                            <td>Último nome</td>
+                                        </tr>
+                                            <tr>
+                                            <th>name</th>
+                                            <td>TEXTO</td>
+                                            <td>255</td>
+                                            <td>NÃO</td>
+                                            <td>Nome completo</td>
+                                        </tr>
+                                        <tr>
+                                            <th>login</th>
+                                            <td>ALFANUMÉRICO</td>
+                                            <td>255</td>
+                                            <td>NÃO</td>
+                                            <td>Login usado para logar na aplicação. Caso não preenchido, será considerado o e-mail</td>
+                                        </tr>
+                                        <tr>
+                                            <th>password</th>
+                                            <td>ALFANUMÉRICO</td>
+                                            <td>255</td>
+                                            <td>NÃO</td>
+                                            <td>Senha para acesso a conta. Caso não seja preenchido, será considerado o e-mail</td>
+                                        </tr>
+                                        <tr>
+                                            <th>email</th>
+                                            <td>ALFANUMÉRICO</td>
+                                            <td>255</td>
+                                            <td>SIM</td>
+                                            <td>E-mail que será usado no cadastro</td>
+                                        </tr>
+                                        <tr>
+                                            <th>phone</th>
+                                            <td>NUMÉRICO</td>
+                                            <td>50</td>
+                                            <td>NÃO</td>
+                                            <td>Número de telefone</td>
+                                        </tr>
+                                        <tr>
+                                            <th>taxid</th>
+                                            <td>NUMÉRICO</td>
+                                            <td>25</td>
+                                            <td>NÃO</td>
+                                            <td>Número do CPF ou CEDULA</td>
+                                        </tr>
+                                        <tr>
+                                            <th>address</th>
+                                            <td>ALFANUMÉRICO</td>
+                                            <td>255</td>
+                                            <td>NÃO</td>
+                                            <td>Endereço</td>
+                                        </tr>
+                                        <tr>
+                                            <th>adressCountryisoCode</th>
+                                            <td>TEXTO</td>
+                                            <td>2</td>
+                                            <td>NÃO</td>
+                                            <td>Código do País do endereço</td>
+                                        </tr>
+                                        <tr>
+                                            <th>adressRegionCode</th>
+                                            <td>TEXTO</td>
+                                            <td>2</td>
+                                            <td>NÃO</td>
+                                            <td>Código da Unidade Federativa do endereço</td>
+                                        </tr>
+                                        <tr>
+                                            <th>adressCityCode</th>
+                                            <td>TEXTO</td>
+                                            <td>3</td>
+                                            <td>NÃO</td>
+                                            <td>Código da Cidade do endereço</td>
+                                        </tr>
+                                        <tr>
+                                            <th>adressDistrict</th>
+                                            <td>TEXTO</td>
+                                            <td>255</td>
+                                            <td>NÃO</td>
+                                            <td>Localidade do endereço</td>
+                                        </tr>
+                                        <tr>
+                                            <th>adressZipcode</th>
+                                            <td>NUMÉRICO</td>
+                                            <td>15</td>
+                                            <td>NÃO</td>
+                                            <td>CEP do endereço</td>
+                                        </tr>
+                                        <tr>
+                                            <th>accountNo</th>
+                                            <td>NUMÉRICO</td>
+                                            <td>255</td>
+                                            <td>NÃO</td>
+                                            <td>Deixar em branco</td>
+                                        </tr>
+                                        <tr>
+                                            <th>sponsorAccountNo</th>
+                                            <td>NUMÉRICO</td>
+                                            <td>255</td>
+                                            <td>NÃO</td>
+                                            <td>Código da conta de quem fez a indicação, se for o caso</td>
+                                        </tr>
+                        </tbody>
+                        </table>
+                        </div>
+    </code></pre>
+    <div id="accountretorno" class="section-block">
+            <div class="code-block">
+            <h6>Retorno da Requisição Account</h6>            
+            <pre><code class="language-javascript">{
+    "token": "DC4521FA04504FC083C21EC1A155E8DF06FCAC7FF69030A0A803AF494B6DF419",
+    "hasError": false,
+    "error": null,
+    "didLogin": false,
+    "user": null
+}</code></pre>
+    <div class="table-responsive">
+            <table class="table table-striped">
+            <thead>
+                            <tr>
+                                <th>PARÂMETRO</th>
+                                <th>TIPO</th>
+                                <th>TAMANHO</th>
+                                <th>OBRIGATÓRIO</th>
+                                <th>DESCRIÇÃO</th>
+                            </tr>
+                                </thead>
+                                <tbody>
+                                            <tr>
+                                                <th>token</th>
+                                                <td>ALFANUMÉRICO</td>
+                                                <td>64</td>
+                                                <td>SIM</td>
+                                                <td>Valor variável e retornado a cada requisição</td>
+                                            </tr>
+                                             <tr>
+                                                <th>hasError</th>
+                                                <td>TEXTO</td>
+                                                <td>5</td>
+                                                <td>SIM</td>
+                                                <td>Retornará "FALSE" se não houver erros na requisição</td>
+                                            </tr>
+                                            <tr>
+                                                <th>error</th>
+                                                <td>TEXTO</td>
+                                                <td>4</td>
+                                                <td>SIM</td>
+                                                <td>Retornará null se não houver erros na requisição</td>
+                                            </tr>
+                                            <tr>
+                                                <th>didLogin</th>
+                                                <td>TEXTO</td>
+                                                <td>5</td>
+                                                <td>SIM</td>
+                                                <td>Retornará TRUE ou FALSE de acordo com o que foi enviado na requisição</td>
+                                            </tr>
+                                             <tr>
+                                                    <th>user</th>
+                                                    <td>ALFANUMÉRICO</td>
+                                                    <td>255</td>
+                                                    <td>SIM</td>
+                                                    <td>Retornará null se no parâmetro "didLogin" for enviado FALSE.</td>
+                                                </tr>
+            </tbody>
+            </table>
+            </div>
+    <div id="accountpayout" class="section-block">
         <div class="code-block">
             <h6>Requisição AccountPayout</h6>
-            <p>A requisição do tipo POST para o serviço de AccountPayout, serve para...                                                                                     
+            <p>A requisição do tipo POST para o serviço de AccountPayout, serve para cadastrar meios de receber o "cashback" das
+                suas compras.                                                                                    
                 </p>
                 <h6>Requisição POST de exemplo</h6>
             <pre><code class="language-javascript">{
@@ -518,10 +764,14 @@
 </tbody>
 </table>
 </div>
+<h6>Se no retorno não houver erros, significa que o cadastro do meio para recebimento do "cashback" foi cadastrado
+    com sucesso.
+</h6>
 <div id="blockaccountpayoutevent" class="section-block">
         <div class="code-block">
             <h6>Requisição de BlockAccountPayoutEvent</h6>
-            <p>A requisição do tipo POST para o serviço de BlockAccountPayoutEvent, serve para...                                                                                     
+            <p>A requisição do tipo POST para o serviço de BlockAccountPayoutEvent, serve para bloquear uma forma de recebimento do
+               "cashback".                                                                                                
                 </p>
                 <h6>Requisição POST de exemplo</h6>
             <pre><code class="language-javascript">{
@@ -531,6 +781,49 @@
     "description": "Cartão roubado!"
 }
 </code></pre>
+<div class="table-responsive">
+        <table class="table table-striped">
+        <thead>
+                        <tr>
+                            <th>PARÂMETRO</th>
+                            <th>TIPO</th>
+                            <th>TAMANHO</th>
+                            <th>OBRIGATÓRIO</th>
+                            <th>DESCRIÇÃO</th>
+                        </tr>
+                            </thead>
+                            <tbody>
+                        <tr>
+                            <th>token</th>
+                            <td>ALFANUMÉRICO</td>
+                            <td>64</td>
+                            <td>SIM</td>
+                            <td>Valor variável e retornado a cada requisição</td>
+                        </tr>
+                        <tr>
+                            <th>ipAddress</th>
+                            <td>ALFANUMÉRICO</td>
+                            <td>100</td>
+                            <td>SIM</td>
+                            <td>IP do user que está acessando a aplicação</td>
+                        </tr>
+                        <tr>
+                                <th>accountPayoutCode</th>
+                                <td>NUMÉRICO</td>
+                                <td>25</td>
+                                <td>SIM</td>
+                                <td>Número do código do "local" recebimento do "cashback"</td>
+                            </tr>
+                            <tr>
+                                <th>description</th>
+                                <td>ALFANUMÉRICO</td>
+                                <td>255</td>
+                                <td>SIM</td>
+                                <td>Descrição do motivo do bloqueio</td>
+                            </tr>
+</tbody>
+</table>
+</div>
 <div id="blockaccountpayouteventretorno" class="section-block">
 <div class="code-block">
 <h6>Retorno da Requisição BlockAccountPayoutEvent</h6>            
@@ -540,6 +833,41 @@
     "error": null
 }
 </code></pre>
+<div class="table-responsive">
+        <table class="table table-striped">
+        <thead>
+                        <tr>
+                            <th>PARÂMETRO</th>
+                            <th>TIPO</th>
+                            <th>TAMANHO</th>
+                            <th>OBRIGATÓRIO</th>
+                            <th>DESCRIÇÃO</th>
+                        </tr>
+                            </thead>
+                            <tbody>
+                        <tr>
+                            <th>token</th>
+                            <td>ALFANUMÉRICO</td>
+                            <td>64</td>
+                            <td>SIM</td>
+                            <td>Valor variável e retornado a cada requisição</td>
+                        </tr>
+                        <tr>
+                            <th>haserror</th>
+                            <td>TEXTO</td>
+                            <td>5</td>
+                            <td>SIM</td>
+                            <td>Retornará "TRUE" se houver erros na requisição</td>
+                        </tr>
+                        <tr>
+                            <th>error</th>
+                            <td>ALFANUMÉRICO</td>
+                            <td>255</td>
+                            <td>SIM</td>
+                            <td>Se houver erros, retornarão nessa chamada</td>
+</tbody>
+</table>
+</div>
 <div id="recoverypassword" class="section-block">
         <div class="code-block">
             <h6>Requisição de RecoveryPassword</h6>
@@ -553,6 +881,42 @@
     "email": "gabriel@adaptaconsultoria.com.br"
 }
 </code></pre>
+<div class="table-responsive">
+        <table class="table table-striped">
+        <thead>
+                        <tr>
+                            <th>PARÂMETRO</th>
+                            <th>TIPO</th>
+                            <th>TAMANHO</th>
+                            <th>OBRIGATÓRIO</th>
+                            <th>DESCRIÇÃO</th>
+                        </tr>
+                            </thead>
+                            <tbody>
+                        <tr>
+                            <th>token</th>
+                            <td>ALFANUMÉRICO</td>
+                            <td>64</td>
+                            <td>SIM</td>
+                            <td>Valor variável e retornado a cada requisição</td>
+                        </tr>
+                        <tr>
+                            <th>ipAddress</th>
+                            <td>ALFANUMÉRICO</td>
+                            <td>100</td>
+                            <td>SIM</td>
+                            <td>IP do user que está acessando a aplicação</td>
+                        </tr>
+                        <tr>
+                            <th>email</th>
+                            <td>ALFANUMÉRICO</td>
+                            <td>255</td>
+                            <td>SIM</td>
+                            <td>E-mail do cadastro</td>
+                        </tr>
+</tbody>
+</table>
+</div>
 <div id="recoverypasswordretorno" class="section-block">
 <div class="code-block">
 <h6>Retorno da Requisição RecoveryPassword</h6>            
@@ -561,7 +925,42 @@
     "hasError": false,
     "error": null
 }
-</code></pre>                               
+</code></pre>
+<div class="table-responsive">
+        <table class="table table-striped">
+        <thead>
+                        <tr>
+                            <th>PARÂMETRO</th>
+                            <th>TIPO</th>
+                            <th>TAMANHO</th>
+                            <th>OBRIGATÓRIO</th>
+                            <th>DESCRIÇÃO</th>
+                        </tr>
+                            </thead>
+                            <tbody>
+                        <tr>
+                            <th>token</th>
+                            <td>ALFANUMÉRICO</td>
+                            <td>64</td>
+                            <td>SIM</td>
+                            <td>Valor variável e retornado a cada requisição</td>
+                        </tr>
+                        <tr>
+                            <th>haserror</th>
+                            <td>TEXTO</td>
+                            <td>5</td>
+                            <td>SIM</td>
+                            <td>Retornará "TRUE" se houver erros na requisição</td>
+                        </tr>
+                        <tr>
+                            <th>error</th>
+                            <td>ALFANUMÉRICO</td>
+                            <td>255</td>
+                            <td>SIM</td>
+                            <td>Se houver erros, retornarão nessa chamada</td>
+</tbody>
+</table>
+</div>
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
                             <section id="regras-section" class="doc-section">
@@ -746,11 +1145,12 @@
                                                 <nav class="doc-sub-menu nav flex-column">
                                                     <a class="nav-link scrollto" href="#authprivada">AuthPrivada</a>
                                                     <a class="nav-link scrollto" href="#authpublica">AuthPublica</a>
+                                                    <a class="nav-link scrollto" href="#account">Account</a>
                                                     <a class="nav-link scrollto" href="#accountpayout">AccountPayout</a>
                                                     <a class="nav-link scrollto" href="#blockaccountpayoutevent">BlockAccountPayoutEvent</a>
                                                     <a class="nav-link scrollto" href="#recoverypassword">RecoveryPassword</a>
                                     </nav><!--//nav-->                
-                                <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+                                <nav id="doc-menu" class="nav doc-menu flex-column sticky"></nav>
                                      <a class="nav-link scrollto" href="#regras-section">Regras Adicionais/Opcionais</a>                     
                                         <nav class="doc-sub-menu nav flex-column">
                                                 </nav><!--//nav-->                
@@ -813,4 +1213,3 @@
     
 </body>
 </html> 
-
