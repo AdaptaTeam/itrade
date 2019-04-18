@@ -58,7 +58,7 @@
         <div class="doc-wrapper">
             <div class="container">
                 <div id="doc-header" class="doc-header text-center">
-                    <h1 class="doc-title"><i class="icon fa fa-paper-plane"></i> Manual de integração a API</h1>
+                    <h1 class="doc-title"><i class='fas fa-code style='font-size:36px'></i> Manual de integração a API</h1>
                     <div class="meta"><i class="far fa-clock"></i> Última atualização: 16/04/2019</div>
                 </div><!--//doc-header-->
                 <div class="doc-body row">
@@ -68,27 +68,50 @@
                                 <div class="section-block">
                                 </div>
                                 <section id="visaogeral-section" class="doc-section">
-                                        <h1 class="section-title">Visão Geral & Objetivo</h1>
-                                        <div id="step1"  class="section-block">
-                                    <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API (NOME DA API), descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
-                                    O mecanismo de integração com (Nome da API) é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução (Nome da api) com sucesso.                                            
-                                    Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API (Nome da API). Estas operações devem ser executadas utilizando um Token e seu IPadress, nos respectivos endpoints dos ambientes:
-                                            </p>                                
-                                        </div><!--//section-block-->
-                                    </section><!--//doc-section-->                                           
-                            <section id="instalacao-section" class="doc-section">
-                                <h2 class="section-title">Instalação</h2>
-                                <div id="step1"  class="section-block">
-                                    <p>Por questão de segurança, as requisições a API precisam SEMPRE de um token válido e único em todas as requisições. Para solicitar seu primeiro token, execute a requisição "AUTH".
-                                    </p>                                
+                         <h1 class="section-title">Visão Geral & Objetivo</h1>
+                         <div id="step1"  class="section-block">
+                     <p>O objetivo desta documentação é orientar o desenvolvedor sobre como integrar com a API (NOME DA API), descrevendo as funcionalidades, os métodos a serem utilizados, listando informações a serem enviadas e recebidas, e provendo exemplos.
+                     O mecanismo de integração com (Nome da API) é simples, de modo que apenas conhecimentos intermediários em linguagem de programação para Web, requisições HTTP/HTTPS e manipulação de arquivos JSON, são necessários para implantar a solução (Nome da api) com sucesso.                                            
+                     Nesse manual você encontrará a referência sobre todas as operações disponíveis na API REST da API (Nome da API). Estas operações devem ser executadas utilizando um Token e seu IPadress, nos respectivos endpoints dos ambientes:
+                             </p>                                
+                </div><!--//section-block-->
+            </section><!--//doc-section-->                                           
+    <section id="instalacao-section" class="doc-section">
+        <h2 class="section-title">Instalação</h2>
+        <div id="step1"  class="section-block">
+            <p>Por questão de segurança, as requisições a API precisam SEMPRE de um token válido e único em todas as requisições. Para solicitar seu primeiro token, execute a requisição "AUTH".                                        
+            </p>
+            <p>Para executar uma operação, combine a URL base do ambiente com a URL da operação desejada e envie utilizando o verbo HTTP conforme descrito na operação.
+            </p>
+            <div class="table-responsive">
+                    <table class="table table-striped">
+                    <thead>
+                <tr>
+                    <th style="text-align: center">SANDBOX</th>
+                    <th style="text-align: center">PRODUÇÃO</th>
+                </tr>
+                    </thead>
+                    <tbody>
+                <tr>
+                    <td>http://adi.adaptaconsultoria.com.br:teste/cashback/api/</td>
+                    <td>http://adi.adaptaconsultoria.com.br:8202/cashback/api/</td>
+                </tr>
+            </tr>
+        </tbody>
+    </table>
+</div>                                
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->                            
                             <section id="exemplo-section" class="doc-section">
                                 <h2 class="section-title">Exemplos de requisições</h2>
                                 <div id="authprivada" class="section-block">
+                                    <div class="d-flex pb-1 mb-3">                                        
+                                        <div class="bg-dark d-flex align-items-center text-success"> <p class ="m-3">POST</p> </div>
+                                        <div class="bg-secondary d-flex align-items-center text-warning"> <p class ="m-3">/auth/</p> </div>                                        
+                                    </div>
                                         <h6>Requisição AUTH - Privada</h6>
                                         <p>A requisição do tipo POST para o serviço de autenticação Privada (Auth) serve para criar uma autenticação via TOKEN para outras requisições do tipo PRIVADA.                                                                                     
-                                        Após enviar essa requisição utilizando os parâmetros "AppToken", "appPassword", "ipAddress","login"
+                                        Após enviar essa requisição utilizando os parâmetros "AppToken", "appPassword", "ipAddress", "login"
                                         e "userPassword", outras requisições da aplicação serão permitidas para o TOKEN em questão, que será gerado e retornado após 
                                         a requisição ser executada. 
                                         </p>
@@ -133,7 +156,7 @@
                 <tr>
                     <th>login</th>
                     <td>ALFANUMÉRICO</td>
-                    <td>30</td>
+                    <td>255</td>
                     <td>SIM</td>
                     <td>Nome do Usuário cadastrado na aplicação</td>
                 </tr>
@@ -225,7 +248,7 @@
                 <tr>
                     <th>login</th>
                     <td>ALFANUMÉRICO</td>
-                    <td>100</td>
+                    <td>255</td>
                     <td>SIM</td>
                     <td>Se não for informado no cadastro, retornará o E-mail</td>
                 </tr>
@@ -269,7 +292,7 @@
                     <td>ALFANUMÉRICO</td>
                     <td>255</td>
                     <td>SIM</td>
-                    <td>Se houver erros, retornarão nessa chamada</td>
+                    <td>Se houver erros, retornarão nesta chamada</td>
                 </tr>
             </tbody>
         </table>
@@ -277,7 +300,13 @@
  <P>O TOKEN gerado será válido por até 15 minutos, ou até a sua utilização.
         Após utilizá-lo, a API retornará os dados da sua requisição + um novo token para usar na próxima requisição.
     </P>
+    <section id="exemplo-section" class="doc-section">
+            <h2 class="section-title"></h2>
     <div id="authpublica" class="section-block">
+            <div class="d-flex pb-1 mb-3">                                        
+                    <div class="bg-dark d-flex align-items-center text-success"> <p class ="m-3">POST</p> </div>
+                    <div class="bg-secondary d-flex align-items-center text-warning"> <p class ="m-3">/auth/</p> </div>                                        
+                </div>
         <div class="code-block">
             <h6>Requisição AUTH - Pública</h6>
             <p>A requisição do tipo POST para o serviço de autenticação Pública(Auth) serve para criar uma autenticação via TOKEN para as requisições do tipo PÚBLICA.                                                                                     
@@ -417,10 +446,18 @@
         </tbody>
     </table>
     </div>
+</div><!--//section-block-->
+</section><!--//doc-section--> 
+<section id="exemplo-section" class="doc-section">
+        <h2 class="section-title"></h2>  
     <div id="account" class="section-block">
+            <div class="d-flex pb-1 mb-3">                                        
+                    <div class="bg-dark d-flex align-items-center text-success"> <p class ="m-3">POST</p> </div>
+                    <div class="bg-secondary d-flex align-items-center text-warning"> <p class ="m-3">/account/</p> </div>                                        
+                </div>
             <div class="code-block">
                 <h6>Requisição Account</h6>
-                <p>A requisição do tipo POST para o serviço de Account, serve para cadastrar uma nova conta na aplicação. Nesas requisição, existem diversos
+                <p>A requisição do tipo POST para o serviço de Account serve para cadastrar uma nova conta na aplicação. Nessa requisição existem diversos
                     parâmetros opcionais e não obrigatório.                                                                    
                     </p>
                     <h6>Requisição POST de exemplo</h6>
@@ -449,158 +486,158 @@
                 <div class="table-responsive">
                         <table class="table table-striped">
                         <thead>
-                                        <tr>
-                                            <th>PARÂMETRO</th>
-                                            <th>TIPO</th>
-                                            <th>TAMANHO</th>
-                                            <th>OBRIGATÓRIO</th>
-                                            <th>DESCRIÇÃO</th>
-                                        </tr>
-                                            </thead>
-                                            <tbody>
-                                        <tr>
-                                            <th>token</th>
-                                            <td>ALFANUMÉRICO</td>
-                                            <td>64</td>
-                                            <td>SIM</td>
-                                            <td>Valor variável e retornado a cada requisição</td>
-                                        </tr>
-                                        <tr>
-                                            <th>ipAddress</th>
-                                            <td>ALFANUMÉRICO</td>
-                                            <td>255</td>
-                                            <td>SIM</td>
-                                            <td>IP do user que está acessando a aplicação</td>
-                                        </tr>
-                                        <tr>
-                                            <th>doLogin</th>
-                                            <td>TEXTO</td>
-                                            <td>5</td>
-                                            <td>SIM</td>
-                                            <td>Preencher com TRUE OR FALSE para efetuar login após o cadastro</td>
-                                        </tr>
-                                        <tr>
-                                            <th>countryIsoCode</th>
-                                            <td>TEXTO</td>
-                                            <td>2</td>
-                                            <td>SIM</td>
-                                            <td>Código do país. Usar BR ou PY</td>
-                                        </tr>                                        
-                                        <tr>
-                                            <th>firstname</th>
-                                            <td>TEXTO</td>
-                                            <td>255</td>
-                                            <td>NÃO</td>
-                                            <td>Primeiro nome</td>
-                                        </tr>
-                                        <tr>
-                                            <th>lastname</th>
-                                            <td>TEXTO</td>
-                                            <td>255</td>
-                                            <td>NÃO</td>
-                                            <td>Último nome</td>
-                                        </tr>
-                                            <tr>
-                                            <th>name</th>
-                                            <td>TEXTO</td>
-                                            <td>255</td>
-                                            <td>NÃO</td>
-                                            <td>Nome completo</td>
-                                        </tr>
-                                        <tr>
-                                            <th>login</th>
-                                            <td>ALFANUMÉRICO</td>
-                                            <td>255</td>
-                                            <td>NÃO</td>
-                                            <td>Login usado para logar na aplicação. Caso não preenchido, será considerado o e-mail</td>
-                                        </tr>
-                                        <tr>
-                                            <th>password</th>
-                                            <td>ALFANUMÉRICO</td>
-                                            <td>255</td>
-                                            <td>NÃO</td>
-                                            <td>Senha para acesso a conta. Caso não seja preenchido, será considerado o e-mail</td>
-                                        </tr>
-                                        <tr>
-                                            <th>email</th>
-                                            <td>ALFANUMÉRICO</td>
-                                            <td>255</td>
-                                            <td>SIM</td>
-                                            <td>E-mail que será usado no cadastro</td>
-                                        </tr>
-                                        <tr>
-                                            <th>phone</th>
-                                            <td>NUMÉRICO</td>
-                                            <td>50</td>
-                                            <td>NÃO</td>
-                                            <td>Número de telefone</td>
-                                        </tr>
-                                        <tr>
-                                            <th>taxid</th>
-                                            <td>NUMÉRICO</td>
-                                            <td>25</td>
-                                            <td>NÃO</td>
-                                            <td>Número do CPF ou CEDULA</td>
-                                        </tr>
-                                        <tr>
-                                            <th>address</th>
-                                            <td>ALFANUMÉRICO</td>
-                                            <td>255</td>
-                                            <td>NÃO</td>
-                                            <td>Endereço</td>
-                                        </tr>
-                                        <tr>
-                                            <th>adressCountryisoCode</th>
-                                            <td>TEXTO</td>
-                                            <td>2</td>
-                                            <td>NÃO</td>
-                                            <td>Código do País do endereço</td>
-                                        </tr>
-                                        <tr>
-                                            <th>adressRegionCode</th>
-                                            <td>TEXTO</td>
-                                            <td>2</td>
-                                            <td>NÃO</td>
-                                            <td>Código da Unidade Federativa do endereço</td>
-                                        </tr>
-                                        <tr>
-                                            <th>adressCityCode</th>
-                                            <td>TEXTO</td>
-                                            <td>3</td>
-                                            <td>NÃO</td>
-                                            <td>Código da Cidade do endereço</td>
-                                        </tr>
-                                        <tr>
-                                            <th>adressDistrict</th>
-                                            <td>TEXTO</td>
-                                            <td>255</td>
-                                            <td>NÃO</td>
-                                            <td>Localidade do endereço</td>
-                                        </tr>
-                                        <tr>
-                                            <th>adressZipcode</th>
-                                            <td>NUMÉRICO</td>
-                                            <td>15</td>
-                                            <td>NÃO</td>
-                                            <td>CEP do endereço</td>
-                                        </tr>
-                                        <tr>
-                                            <th>accountNo</th>
-                                            <td>NUMÉRICO</td>
-                                            <td>255</td>
-                                            <td>NÃO</td>
-                                            <td>Deixar em branco</td>
-                                        </tr>
-                                        <tr>
-                                            <th>sponsorAccountNo</th>
-                                            <td>NUMÉRICO</td>
-                                            <td>255</td>
-                                            <td>NÃO</td>
-                                            <td>Código da conta de quem fez a indicação, se for o caso</td>
-                                        </tr>
-                        </tbody>
-                        </table>
-                        </div>
+ <tr>
+     <th>PARÂMETRO</th>
+     <th>TIPO</th>
+     <th>TAMANHO</th>
+     <th>OBRIGATÓRIO</th>
+     <th>DESCRIÇÃO</th>
+ </tr>
+     </thead>
+     <tbody>
+ <tr>
+     <th>token</th>
+     <td>ALFANUMÉRICO</td>
+     <td>64</td>
+     <td>SIM</td>
+     <td>Valor variável e retornado a cada requisição</td>
+ </tr>
+ <tr>
+     <th>ipAddress</th>
+     <td>ALFANUMÉRICO</td>
+     <td>255</td>
+     <td>SIM</td>
+     <td>IP do user que está acessando a aplicação</td>
+ </tr>
+ <tr>
+     <th>doLogin</th>
+     <td>TEXTO</td>
+     <td>5</td>
+     <td>SIM</td>
+     <td>Preencher com TRUE OR FALSE para efetuar login após o cadastro</td>
+ </tr>
+ <tr>
+     <th>countryIsoCode</th>
+     <td>TEXTO</td>
+     <td>2</td>
+     <td>SIM</td>
+     <td>Código do país. Usar BR ou PY</td>
+ </tr>                                        
+ <tr>
+     <th>firstname</th>
+     <td>TEXTO</td>
+     <td>255</td>
+     <td>NÃO</td>
+     <td>Primeiro nome</td>
+ </tr>
+ <tr>
+     <th>lastname</th>
+     <td>TEXTO</td>
+     <td>255</td>
+     <td>NÃO</td>
+     <td>Último nome</td>
+ </tr>
+     <tr>
+     <th>name</th>
+     <td>TEXTO</td>
+     <td>255</td>
+     <td>NÃO</td>
+     <td>Nome completo</td>
+ </tr>
+ <tr>
+     <th>login</th>
+     <td>ALFANUMÉRICO</td>
+     <td>255</td>
+     <td>NÃO</td>
+     <td>Login usado para logar na aplicação. Caso não preenchido, será considerado o e-mail</td>
+ </tr>
+ <tr>
+     <th>password</th>
+     <td>ALFANUMÉRICO</td>
+     <td>255</td>
+     <td>NÃO</td>
+     <td>Senha para acesso a conta. Caso não seja preenchido, será considerado o e-mail</td>
+ </tr>
+ <tr>
+     <th>email</th>
+     <td>ALFANUMÉRICO</td>
+     <td>255</td>
+     <td>SIM</td>
+     <td>E-mail que será usado no cadastro</td>
+ </tr>
+ <tr>
+     <th>phone</th>
+     <td>NUMÉRICO</td>
+     <td>50</td>
+     <td>NÃO</td>
+     <td>Número de telefone</td>
+ </tr>
+ <tr>
+     <th>taxid</th>
+     <td>NUMÉRICO</td>
+     <td>25</td>
+     <td>NÃO</td>
+     <td>Número do CPF ou CEDULA</td>
+ </tr>
+ <tr>
+     <th>address</th>
+     <td>ALFANUMÉRICO</td>
+     <td>255</td>
+     <td>NÃO</td>
+     <td>Endereço</td>
+ </tr>
+ <tr>
+     <th>adressCountryisoCode</th>
+     <td>TEXTO</td>
+     <td>2</td>
+     <td>NÃO</td>
+     <td>Código do País do endereço</td>
+ </tr>
+ <tr>
+     <th>adressRegionCode</th>
+     <td>TEXTO</td>
+     <td>2</td>
+     <td>NÃO</td>
+     <td>Código da Unidade Federativa do endereço</td>
+ </tr>
+ <tr>
+     <th>adressCityCode</th>
+     <td>TEXTO</td>
+     <td>3</td>
+     <td>NÃO</td>
+     <td>Código da Cidade do endereço</td>
+ </tr>
+ <tr>
+     <th>adressDistrict</th>
+     <td>TEXTO</td>
+     <td>255</td>
+     <td>NÃO</td>
+     <td>Localidade do endereço</td>
+ </tr>
+ <tr>
+     <th>adressZipcode</th>
+     <td>NUMÉRICO</td>
+     <td>15</td>
+     <td>NÃO</td>
+     <td>CEP do endereço</td>
+ </tr>
+ <tr>
+     <th>accountNo</th>
+     <td>NUMÉRICO</td>
+     <td>255</td>
+     <td>NÃO</td>
+     <td>Deixar em branco</td>
+ </tr>
+ <tr>
+     <th>sponsorAccountNo</th>
+     <td>NUMÉRICO</td>
+     <td>255</td>
+     <td>NÃO</td>
+     <td>Código da conta de quem fez a indicação, se for o caso</td>
+ </tr>
+</tbody>
+</table>
+</div>
     </code></pre>
     <div id="accountretorno" class="section-block">
             <div class="code-block">
@@ -659,13 +696,21 @@
                                                     <td>SIM</td>
                                                     <td>Retornará null se no parâmetro "didLogin" for enviado FALSE.</td>
                                                 </tr>
-            </tbody>
-            </table>
-            </div>
+</tbody>
+</table>
+</div>
+</div><!--//section-block-->
+    </section><!--//doc-section-->   
+    <section id="exemplo-section" class="doc-section">
+            <h2 class="section-title"></h2>
     <div id="accountpayout" class="section-block">
+            <div class="d-flex pb-1 mb-3">                                        
+                    <div class="bg-dark d-flex align-items-center text-success"> <p class ="m-3">POST</p> </div>
+                    <div class="bg-secondary d-flex align-items-center text-warning"> <p class ="m-3">/accountpayout/</p> </div>                                        
+                </div>
         <div class="code-block">
             <h6>Requisição AccountPayout</h6>
-            <p>A requisição do tipo POST para o serviço de AccountPayout, serve para cadastrar meios de receber o "cashback" das
+            <p>A requisição do tipo POST para o serviço de AccountPayout serve para cadastrar meios de receber o "cashback" das
                 suas compras.                                                                                    
                 </p>
                 <h6>Requisição POST de exemplo</h6>
@@ -764,10 +809,15 @@
 </tbody>
 </table>
 </div>
-<h6>Se no retorno não houver erros, significa que o cadastro do meio para recebimento do "cashback" foi cadastrado
-    com sucesso.
-</h6>
+</div><!--//section-block-->
+</section><!--//doc-section-->   
+<section id="exemplo-section" class="doc-section">
+        <h2 class="section-title"></h2>
 <div id="blockaccountpayoutevent" class="section-block">
+        <div class="d-flex pb-1 mb-3">                                        
+                <div class="bg-dark d-flex align-items-center text-success"> <p class ="m-3">POST</p> </div>
+                <div class="bg-secondary d-flex align-items-center text-warning"> <p class ="m-3">/blockaccountpayoutevent/</p> </div>                                        
+            </div>
         <div class="code-block">
             <h6>Requisição de BlockAccountPayoutEvent</h6>
             <p>A requisição do tipo POST para o serviço de BlockAccountPayoutEvent, serve para bloquear uma forma de recebimento do
@@ -868,7 +918,15 @@
 </tbody>
 </table>
 </div>
+</div><!--//section-block-->
+</section><!--//doc-section-->   
+<section id="exemplo-section" class="doc-section">
+        <h2 class="section-title"></h2>
 <div id="recoverypassword" class="section-block">
+        <div class="d-flex pb-1 mb-3">                                        
+                <div class="bg-dark d-flex align-items-center text-success"> <p class ="m-3">POST</p> </div>
+                <div class="bg-secondary d-flex align-items-center text-warning"> <p class ="m-3">/recoverypassword/</p> </div>                                        
+            </div>
         <div class="code-block">
             <h6>Requisição de RecoveryPassword</h6>
             <p>A requisição do tipo POST para o serviço de RecoveryPassword, serve para solicitar a redefinição de senha,
@@ -961,7 +1019,113 @@
 </tbody>
 </table>
 </div>
-                                </div><!--//section-block-->
+</div><!--//section-block-->
+</section><!--//doc-section-->
+<section id="exemplo-section" class="doc-section">
+        <h2 class="section-title"></h2>
+<div id="userlogin" class="section-block">
+        <div class="d-flex pb-1 mb-3">                                        
+                <div class="bg-dark d-flex align-items-center text-success"> <p class ="m-3">GET</p> </div>
+                <div class="bg-secondary d-flex align-items-center text-warning"> <p class ="m-3">/user/login</p> </div>                                        
+            </div>
+        <div class="code-block">
+            <h6>Requisição de UserLogin</h6>
+            <p>A requisição do tipo GET para o serviço de UserLogin, serve para fazer uma consulta se o login consultado é válido para ser cadastrado.                                                                               
+                </p>
+                <p>Endpoint Query String /user/login</p>
+                <h6>Requisição GET de exemplo</h6>
+<pre><code class="language-javascript">?token=6636A853B257487E5C13258ED95B4F43CEADBCEB4D3AA50127130BF89D9BBB9F&ipAddress=localhost&login=kreimer1995
+</code></pre>
+    <div class="table-responsive">
+            <table class="table table-striped">
+            <thead>
+                            <tr>
+                                <th>PARÂMETRO</th>
+                                <th>TIPO</th>
+                                <th>TAMANHO</th>
+                                <th>OBRIGATÓRIO</th>
+                                <th>DESCRIÇÃO</th>
+                            </tr>
+                                </thead>
+                                <tbody>
+                            <tr>
+                                <th>token</th>
+                                <td>ALFANUMÉRICO</td>
+                                <td>64</td>
+                                <td>SIM</td>
+                                <td>Valor variável e retornado a cada requisição</td>
+                            </tr>
+                            <tr>
+                                <th>ipAddress</th>
+                                <td>ALFANUMÉRICO</td>
+                                <td>100</td>
+                                <td>SIM</td>
+                                <td>IP do user que está acessando a aplicação</td>
+                            </tr>
+                            <tr>
+                                <th>login</th>
+                                <td>ALFANUMÉRICO</td>
+                                <td>255</td>
+                                <td>SIM</td>
+                                <td>Informar o login que deseja consultar a disponibilidade</td>
+    </tbody>
+    </table>
+    </div>
+    <div id="userloginretorno" class="section-block">
+            <div class="code-block">
+                    <h6>Retorno da Requisição GET</h6>
+    <pre><code class="language-javascript">{
+    "token": "1AB931C59B0A45D020BD873AED8DCDCE6B952DDED16AE95CEA1C0786C9ECBAC8",
+    "hasError": false,
+    "error": null,
+    "isvalid": true
+}</code></pre>
+        <div class="table-responsive">
+                <table class="table table-striped">
+                <thead>
+                                <tr>
+                                    <th>PARÂMETRO</th>
+                                    <th>TIPO</th>
+                                    <th>TAMANHO</th>
+                                    <th>OBRIGATÓRIO</th>
+                                    <th>DESCRIÇÃO</th>
+                                </tr>
+                                    </thead>
+                                    <tbody>
+                                <tr>
+                                    <th>token</th>
+                                    <td>ALFANUMÉRICO</td>
+                                    <td>64</td>
+                                    <td>SIM</td>
+                                    <td>Valor variável e retornado a cada requisição</td>
+                                </tr>
+                                <tr>
+                                    <th>haserror</th>
+                                    <td>TEXTO</td>
+                                    <td>5</td>
+                                    <td>SIM</td>
+                                    <td>Retornará "TRUE" se houver erros na requisição</td>
+                                    </tr>
+                                    <tr>
+                                    <th>error</th>
+                                    <td>ALFANUMÉRICO</td>
+                                    <td>255</td>
+                                    <td>SIM</td>
+                                    <td>Se houver erros, retornarão nesta chamada</td>
+                                </tr>
+                                <tr>
+                                    <th>isvalid</th>
+                                    <td>TEXTO</td>
+                                    <td>5</td>
+                                    <td>SIM</td>
+                                    <td>Irá retornar TRUE OR FALSE.</td>
+                                </tr>
+                             </tbody>
+                                </table>
+                                </div>
+    </div><!--//section-block-->
+</section><!--//doc-section-->  
+                         </div><!--//section-block-->
                             </section><!--//doc-section-->
                             <section id="regras-section" class="doc-section">
                                 <h2 class="section-title">Regras adicionais/Opcionais</h2>
@@ -1124,9 +1288,6 @@
                                     </div><!--//table-responsive-->
                                 </div><!--//section-block-->
                             </section><!--//doc-section-->
-
-
-
                         </div><!--//content-inner-->
                     </div><!--//doc-content-->
                     <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
@@ -1143,12 +1304,13 @@
                                     <nav id="doc-menu" class="nav doc-menu flex-column sticky">
                                             <a class="nav-link scrollto" href="#exemplo-section">Exemplos de requisições</a>
                                                 <nav class="doc-sub-menu nav flex-column">
-                                                    <a class="nav-link scrollto" href="#authprivada">AuthPrivada</a>
-                                                    <a class="nav-link scrollto" href="#authpublica">AuthPublica</a>
-                                                    <a class="nav-link scrollto" href="#account">Account</a>
-                                                    <a class="nav-link scrollto" href="#accountpayout">AccountPayout</a>
-                                                    <a class="nav-link scrollto" href="#blockaccountpayoutevent">BlockAccountPayoutEvent</a>
-                                                    <a class="nav-link scrollto" href="#recoverypassword">RecoveryPassword</a>
+                                                    <a class="nav-link scrollto" href="#authprivada">AuthPrivada - POST</a>
+                                                    <a class="nav-link scrollto" href="#authpublica">AuthPublica - POST</a>
+                                                    <a class="nav-link scrollto" href="#account">Account - POST</a>
+                                                    <a class="nav-link scrollto" href="#accountpayout">AccountPayout - POST</a>
+                                                    <a class="nav-link scrollto" href="#blockaccountpayoutevent">BlockAccountPayoutEvent - POST</a>
+                                                    <a class="nav-link scrollto" href="#recoverypassword">RecoveryPassword - POST</a>
+                                                    <a class="nav-link scrollto" href="#userlogin">UserLogin - GET</a>
                                     </nav><!--//nav-->                
                                 <nav id="doc-menu" class="nav doc-menu flex-column sticky"></nav>
                                      <a class="nav-link scrollto" href="#regras-section">Regras Adicionais/Opcionais</a>                     
@@ -1194,15 +1356,11 @@
                 </div><!--//promo-block-inner-->  
             </div><!--//container-->
         </div><!--//promo-block-->
-        
     </div><!--//page-wrapper-->
-    
     <footer id="footer" class="footer text-center">
-        <div class="container"><H5>POWERED BY ADAPTA </H5>        
+            <a class="link" href="https://adaptaconsultoria.com.br">Copyright © 2019 Adapta Consultoria, Todos os direitos reservados.</a>       
         </div><!--//container-->
-    </footer><!--//footer-->
-    
-     
+    </footer><!--//footer--> 
     <!-- Main Javascript -->          
     <script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -1210,6 +1368,5 @@
     <script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>      
     <script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                             
     <script type="text/javascript" src="assets/js/main.js"></script>
-    
 </body>
 </html> 
