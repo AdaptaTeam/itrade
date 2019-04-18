@@ -1032,7 +1032,6 @@
             <h6>Requisição de UserLogin</h6>
             <p>A requisição do tipo GET para o serviço de UserLogin, serve para fazer uma consulta se o login consultado é válido para ser cadastrado.                                                                               
                 </p>
-                <p>Endpoint Query String /user/login</p>
                 <h6>Requisição GET de exemplo</h6>
 <pre><code class="language-javascript">?token=6636A853B257487E5C13258ED95B4F43CEADBCEB4D3AA50127130BF89D9BBB9F&ipAddress=localhost&login=kreimer1995
 </code></pre>
@@ -1125,6 +1124,113 @@
                                 </div>
     </div><!--//section-block-->
 </section><!--//doc-section-->  
+
+
+<section id="exemplo-section" class="doc-section">
+        <h2 class="section-title"></h2>
+<div id="useremail" class="section-block">
+        <div class="d-flex pb-1 mb-3">                                        
+                <div class="bg-dark d-flex align-items-center text-success"> <p class ="m-3">GET</p> </div>
+                <div class="bg-secondary d-flex align-items-center text-warning"> <p class ="m-3">/user/email</p> </div>                                        
+            </div>
+        <div class="code-block">
+            <h6>Requisição de UserEmail</h6>
+            <p>A requisição do tipo GET para o serviço de UserEmail, serve para fazer uma consulta se o E-mail consultado é válido para ser cadastrado.                                                                               
+                </p>
+                <h6>Requisição GET de exemplo</h6>
+<pre><code class="language-javascript">?token=695753EF412A00AD66FE27757959B910810267500C216745BAF30F55AEDD9F88&ipAddress=localhost&email=cleiton@gmail.com
+</code></pre>
+    <div class="table-responsive">
+            <table class="table table-striped">
+            <thead>
+                            <tr>
+                                <th>PARÂMETRO</th>
+                                <th>TIPO</th>
+                                <th>TAMANHO</th>
+                                <th>OBRIGATÓRIO</th>
+                                <th>DESCRIÇÃO</th>
+                            </tr>
+                                </thead>
+                                <tbody>
+                            <tr>
+                                <th>token</th>
+                                <td>ALFANUMÉRICO</td>
+                                <td>64</td>
+                                <td>SIM</td>
+                                <td>Valor variável e retornado a cada requisição</td>
+                            </tr>
+                            <tr>
+                                <th>ipAddress</th>
+                                <td>ALFANUMÉRICO</td>
+                                <td>100</td>
+                                <td>SIM</td>
+                                <td>IP do user que está acessando a aplicação</td>
+                            </tr>
+                            <tr>
+                                <th>email</th>
+                                <td>ALFANUMÉRICO</td>
+                                <td>255</td>
+                                <td>SIM</td>
+                                <td>Informar o E-mail que deseja consultar a disponibilidade</td>
+    </tbody>
+    </table>
+    </div>
+    <div id="useremailretorno" class="section-block">
+            <div class="code-block">
+                    <h6>Retorno da Requisição GET</h6>
+    <pre><code class="language-javascript">{
+    "token": "1AB931C59B0A45D020BD873AED8DCDCE6B952DDED16AE95CEA1C0786C9ECBAC8",
+    "hasError": false,
+    "error": null,
+    "isvalid": true
+}</code></pre>
+        <div class="table-responsive">
+                <table class="table table-striped">
+                <thead>
+                                <tr>
+                                    <th>PARÂMETRO</th>
+                                    <th>TIPO</th>
+                                    <th>TAMANHO</th>
+                                    <th>OBRIGATÓRIO</th>
+                                    <th>DESCRIÇÃO</th>
+                                </tr>
+                                    </thead>
+                                    <tbody>
+                                <tr>
+                                    <th>token</th>
+                                    <td>ALFANUMÉRICO</td>
+                                    <td>64</td>
+                                    <td>SIM</td>
+                                    <td>Valor variável e retornado a cada requisição</td>
+                                </tr>
+                                <tr>
+                                    <th>haserror</th>
+                                    <td>TEXTO</td>
+                                    <td>5</td>
+                                    <td>SIM</td>
+                                    <td>Retornará "TRUE" se houver erros na requisição</td>
+                                    </tr>
+                                    <tr>
+                                    <th>error</th>
+                                    <td>ALFANUMÉRICO</td>
+                                    <td>255</td>
+                                    <td>SIM</td>
+                                    <td>Se houver erros, retornarão nesta chamada</td>
+                                </tr>
+                                <tr>
+                                    <th>isvalid</th>
+                                    <td>TEXTO</td>
+                                    <td>5</td>
+                                    <td>SIM</td>
+                                    <td>Irá retornar TRUE OR FALSE.</td>
+                                </tr>
+                             </tbody>
+                                </table>
+                                </div>
+    </div><!--//section-block-->
+</section><!--//doc-section-->  
+
+
                          </div><!--//section-block-->
                             </section><!--//doc-section-->
                             <section id="regras-section" class="doc-section">
@@ -1311,6 +1417,7 @@
                                                     <a class="nav-link scrollto" href="#blockaccountpayoutevent">BlockAccountPayoutEvent - POST</a>
                                                     <a class="nav-link scrollto" href="#recoverypassword">RecoveryPassword - POST</a>
                                                     <a class="nav-link scrollto" href="#userlogin">UserLogin - GET</a>
+                                                    <a class="nav-link scrollto" href="#useremail">UserEmail - GET</a>
                                     </nav><!--//nav-->                
                                 <nav id="doc-menu" class="nav doc-menu flex-column sticky"></nav>
                                      <a class="nav-link scrollto" href="#regras-section">Regras Adicionais/Opcionais</a>                     
