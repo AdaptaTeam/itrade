@@ -66,7 +66,7 @@
                 <div id="doc-header" class="doc-header text-center">
                     <h1 class="doc-title"><i class='fas fa-code style=' font-size:36px'></i> Manual de integração a API
                     </h1>
-                    <div class="meta"><i class="far fa-clock"></i> Última atualização: 16/04/2019</div>
+                    <div class="meta"><i class="far fa-clock"></i> Última atualização: 25/04/2019</div>
                 </div>
                 <!--//doc-header-->
                 <div class="doc-body row">
@@ -137,9 +137,8 @@
                                         <p>A requisição do tipo POST para o serviço de autenticação Privada (Auth) serve
                                             para criar uma autenticação via TOKEN para outras requisições do tipo
                                             PRIVADA.
-                                            Após enviar essa requisição utilizando os parâmetros "AppToken",
-                                            "appPassword", "login"
-                                            e "userPassword", outras requisições da aplicação serão permitidas para o
+                                            Após enviar essa requisição utilizando os parâmetros abaixo,
+                                            outras requisições da aplicação serão permitidas para o
                                             TOKEN em questão, que será gerado e retornado após
                                             a requisição ser executada.
                                         </p>
@@ -337,15 +336,10 @@
                                                                 Pública(Auth) serve para criar uma autenticação via
                                                                 TOKEN para as requisições do tipo PÚBLICA.
                                                                 Após enviar essa requisição utilizando os parâmetros
-                                                                "AppToken" e "appPassword", outras ações na API serão
+                                                                descritos abaixo, outras ações na API serão
                                                                 permitidas para o TOKEN
                                                                 em questão, que será gerado e retornado após a
                                                                 requisição ser executada.
-                                                            </p>
-                                                            <p>ATENÇÃO!!! Esse TOKEN será válido por até 15 minutos e
-                                                                somente poderá se utilizado uma ÚNICA vez, pois a cada
-                                                                requisição será gerado
-                                                                um novo TOKEN.
                                                             </p>
                                                             <h6>Requisição POST de exemplo</h6>
                                                             <pre><code class="language-javascript">{
