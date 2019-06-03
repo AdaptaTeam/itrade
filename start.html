@@ -201,17 +201,45 @@
                                             <div class="code-block">
                                                 <h6>Retorno da Requisição AUTH - Privada</h6>
                                                 <pre><code class="language-javascript">{
-    "token": "FA9622016767FE46EA6601042586C5CD6D4AFB84723105E353DDDE07A55A8461",
-    "user": {
-        "firstname": null,
-        "lastname": null,
-        "name": "Vinicius Yago Bruno Pereira",
-        "email": "heitorlucasferreira-99@delboux.com.br",
-        "login": "heitorlucasferreira-99@delboux.com.br",
-        "company": 1,
-        "isactive": true,
-        "phone": "",
-        "role": "CUSTOMER"
+    "token": "45BB6124B003DC0902DCDF1D2B61D1FBEF97AC107E023AB0DF7C0B14EFE7F7AE",
+    "account": {
+        "countryIsoCode": "BR",
+        "accountNo": "0550000000673",
+        "taxid": null,
+        "personalValue": null,
+        "earningValue": null,
+        "returnedValue": null,
+        "accountSponsorAccount": "0550000000054",
+        "currency": "BRL",
+        "address": "Rua Ipumirim",
+        "addressCountryIsoCode": "BR",
+        "addressRegionCode": "SC",
+        "addressCityCode": "4204202",
+        "addressNumber": null,
+        "addressDistrict": null,
+        "addressZipcode": "89810040",
+        "addressLat": null,
+        "addressLng": null,
+        "addressGeoinformation": null,
+        "addressCountryName": "Brasil",
+        "addressRegionName": "SANTA CATARINA",
+        "addressCityName": "Chapecó",
+        "avatar": "https://adaptadigital.com.br/wp-content/uploads/2019/05/avatar-5.png",
+        "enabled2fa": false,
+        "user": {
+            "firstname": null,
+            "lastname": null,
+            "name": "cleitonkreimer",
+            "email": "cleitonkreimer@gmail.com",
+            "login": "cleitonkreimer",
+            "company": 1,
+            "isactive": true,
+            "phone": "11111111111",
+            "role": null,
+            "gender": "M",
+            "birthdate": 811825200000,
+            "avatar": "https://adaptadigital.com.br/wp-content/uploads/2019/05/avatar-5.png"
+        }
     },
     "hasError": false,
     "error": null
@@ -230,11 +258,172 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                                <th>appToken</th>
+                                                                <th>token</th>
                                                                 <td>ALFANUMÉRICO</td>
                                                                 <td>64</td>
                                                                 <td>SIM</td>
                                                                 <td>Valor variável e retornado a cada requisição</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>countryIsoCode</th>
+                                                                <td>TEXTO</td>
+                                                                <td>2</td>
+                                                                <td>SIM</td>
+                                                                <td>Código do país cadastro na conta</td>
+                                                            </tr>
+                                                            <th>accountNo</th>
+                                                            <td>NUMÉRICO</td>
+                                                            <td>255</td>
+                                                            <td>NÃO</td>
+                                                            <td>Retornará o código da conta</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>taxid</th>
+                                                                <td>NUMÉRICO</td>
+                                                                <td>25</td>
+                                                                <td>NÃO</td>
+                                                                <td>Número do CPF ou CEDULA cadastro na conta</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>personalValue</th>
+                                                                <td>TEXTO</td>
+                                                                <td>255</td>
+                                                                <td>NÃO</td>
+                                                                <td>Primeiro nome</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>earningValue</th>
+                                                                <td>TEXTO</td>
+                                                                <td>255</td>
+                                                                <td>NÃO</td>
+                                                                <td>Último nome</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>returnedValue</th>
+                                                                <td>TEXTO</td>
+                                                                <td>255</td>
+                                                                <td>NÃO</td>
+                                                                <td>Nome completo</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>sponsorAccountNo</th>
+                                                                <td>NUMÉRICO</td>
+                                                                <td>255</td>
+                                                                <td>SIM</td>
+                                                                <td>Código da conta de quem fez a indicação</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>currency</th>
+                                                                <td>TEXTO</td>
+                                                                <td>3</td>
+                                                                <td>SIM</td>
+                                                                <td>Código da moeda para recebimento cadastrado.
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>address</th>
+                                                                <td>ALFANUMÉRICO</td>
+                                                                <td>255</td>
+                                                                <td>NÃO</td>
+                                                                <td>Endereço</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>addressCountryisoCode</th>
+                                                                <td>TEXTO</td>
+                                                                <td>2</td>
+                                                                <td>NÃO</td>
+                                                                <td>Código do País do endereço</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>addressRegionCode</th>
+                                                                <td>TEXTO</td>
+                                                                <td>2</td>
+                                                                <td>NÃO</td>
+                                                                <td>Código da Unidade Federativa do endereço</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>addressCityCode</th>
+                                                                <td>TEXTO</td>
+                                                                <td>3</td>
+                                                                <td>NÃO</td>
+                                                                <td>Código da Cidade do endereço</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>addressNumber</th>
+                                                                <td>ALFANUMÉRICO</td>
+                                                                <td>255</td>
+                                                                <td>NÃO</td>
+                                                                <td>Número do endereço</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>addressDistrict</th>
+                                                                <td>TEXTO</td>
+                                                                <td>255</td>
+                                                                <td>NÃO</td>
+                                                                <td>Localidade do endereço</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>addressZipcode</th>
+                                                                <td>NUMÉRICO</td>
+                                                                <td>15</td>
+                                                                <td>NÃO</td>
+                                                                <td>CEP do endereço</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>addressLat</th>
+                                                                <td>ALFANUMÉRICO</td>
+                                                                <td>255</td>
+                                                                <td>NÃO</td>
+                                                                <td>Latitude do endereço</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>addressLng</th>
+                                                                <td>NUMÉRICO</td>
+                                                                <td>15</td>
+                                                                <td>NÃO</td>
+                                                                <td>Longitude do endereço</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>addressGeoinformation</th>
+                                                                <td>ALFANUMÉRICO</td>
+                                                                <td>255</td>
+                                                                <td>NÃO</td>
+                                                                <td>O que é?</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>addressCountryName</th>
+                                                                <td>TEXTO</td>
+                                                                <td>255</td>
+                                                                <td>NÃO</td>
+                                                                <td>Nome do país</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>addressRegionName</th>
+                                                                <td>TEXTO</td>
+                                                                <td>255</td>
+                                                                <td>NÃO</td>
+                                                                <td>Nome do Estado</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>addressCityName</th>
+                                                                <td>TEXTO</td>
+                                                                <td>255</td>
+                                                                <td>NÂO</td>
+                                                                <td>Nome da cidade</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>avatar</th>
+                                                                <td>ALFANUMÉRICO</td>
+                                                                <td>255</td>
+                                                                <td>SIM</td>
+                                                                <td>Link para visualização da imagem do perfil (avatar)</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>enabled2fa</th>
+                                                                <td>TEXTO</td>
+                                                                <td>25</td>
+                                                                <td>SIM</td>
+                                                                <td>Retornará se o 2FA está ativo ou não</td>
                                                             </tr>
                                                             <tr>
                                                                 <th>firstname</th>
@@ -250,7 +439,6 @@
                                                                 <td>NÃO</td>
                                                                 <td>Será retornado se existir no cadastro</td>
                                                             </tr>
-
                                                             <tr>
                                                                 <th>name</th>
                                                                 <td>ALFANUMÉRICO</td>
@@ -301,6 +489,18 @@
                                                                 <td>SIM</td>
                                                                 <td>Retornará o tipo do perfil do cadastro</td>
                                                             </tr>
+                                                            <th>gender</th>
+                                                            <td>TEXTO</td>
+                                                            <td>1</td>
+                                                            <td>SIM</td>
+                                                            <td>Retornará o sexo do perfil</td>
+                                                        </tr>
+                                                        <th>birthdate</th>
+                                                        <td>TIMESTAMP</td>
+                                                        <td>80</td>
+                                                        <td>SIM</td>
+                                                        <td>Retornará um timestamp que significa a data de aniversário</td>
+                                                    </tr>
                                                             <tr>
                                                                 <th>haserror</th>
                                                                 <td>TEXTO</td>
@@ -379,18 +579,12 @@
                                                             <div id="authpublicaretorno" class="section-block pb-0">
                                                                 <div class="code-block">
                                                                     <h6>Retorno da Requisição AUTH - Pública</h6>
-                                                                    <pre><code class="language-javascript">{  
-            "token":"8DBAEE9FC7C03B1631CB869A0ADE5D68DB18EA98E0285CCE869904CC2D4B8D20",
-            "user":null,
-            "hasError":true,
-            "error":{  
-               "error":null,
-               "appToken":null,
-               "appPassword":null,
-               "userName":null,
-               "userPassword":null
-            }
-         }
+                                                                    <pre><code class="language-javascript">{
+            "token": "1A38C9406CF117DBE7522FD761840558381DC9E3879A0D97F84F637FA788D311",
+            "account": null,
+            "hasError": false,
+            "error": null
+        }
 </code></pre>
                                                                     <div class="table-responsive">
                                                                         <table class="table table-striped">
@@ -413,12 +607,11 @@
                                                                                         cada requisição</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th>user</th>
+                                                                                    <th>account</th>
                                                                                     <td>ALFANUMÉRICO</td>
                                                                                     <td>255</td>
                                                                                     <td>NÃO</td>
-                                                                                    <td>Retornará null se não for
-                                                                                        informado na requisição</td>
+                                                                                    <td>Retornará null</td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <th>hasError</th>
@@ -434,40 +627,11 @@
                                                                                     <td>SIM</td>
                                                                                     <td>Será retornado null</td>
                                                                                 </tr>
-                                                                                <tr>
-                                                                                    <th>apptoken</th>
-                                                                                    <td>ALFANUMÉRICO</td>
-                                                                                    <td>255</td>
-                                                                                    <td>SIM</td>
-                                                                                    <td>Será retornado null</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>appPassword</th>
-                                                                                    <td>ALFANUMÉRICO</td>
-                                                                                    <td>255</td>
-                                                                                    <td>SIM</td>
-                                                                                    <td>Será retornado null</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>userName</th>
-                                                                                    <td>ALFANUMÉRICO</td>
-                                                                                    <td>255</td>
-                                                                                    <td>SIM</td>
-                                                                                    <td>Será retornado null</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th>UserPassword</th>
-                                                                                    <td>ALFANUMÉRICO</td>
-                                                                                    <td>255</td>
-                                                                                    <td>SIM</td>
-                                                                                    <td>Será retornado null</td>
-                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
                                                 </section>
                                                 <!--//doc-section-->
-
                                                 <section id="exemplopost-section" class="doc-section pt-0">
                                                     <h2 class="section-title"></h2>
                                                     <div id="accountpost" class="section-block pb-0">
